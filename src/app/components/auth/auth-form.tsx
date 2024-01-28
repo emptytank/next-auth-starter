@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import classes from '@/app/components/auth/auth-form.module.css';
 
@@ -21,7 +23,7 @@ export default function AuthForm() {
                     <label htmlFor="password">Your Password</label>
                     <input type="password" id="password" required />
                 </div>
-                <div className={classes.action}>
+                <div className={classes.actions}>
                     <button>{isLogin ? "Login" : "Create Account"}</button>
                     <button type="button" className={classes.toggle} onClick={switchAuthModeHandler}>
                         {isLogin ? "Create new account" : "Login with existing account"}
