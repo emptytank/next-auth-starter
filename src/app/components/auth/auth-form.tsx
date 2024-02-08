@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { createUser } from "@/app/api/users";
+import { createUser } from "@/app/api/auth/signup";
 import type { User } from "@/app/interfaces/users";
 import classes from "@/app/components/auth/auth-form.module.css";
 
 export default function AuthForm() {
+
 	const emailInputRef = useRef<HTMLInputElement>(null);
 	const passwordInputRef = useRef<HTMLInputElement>(null);
 
@@ -25,21 +26,20 @@ export default function AuthForm() {
 				email: enteredEmail,
 				password: enteredPassword,
 			};
-            
-            // optional: Add more validation
+
+			// optional: Add more validation
 
 			if (isLogin) {
 				// log user in
 			} else {
-                try {
-                    const result = await createUser(enteredUser);
-                    console.log(result);
-                } catch (error) {
-                    console.log(error);
-                }
+				try {
+					const result = await createUser(enteredUser);
+					console.log(result);
+				} catch (error) {
+					console.log(error);
+				}
 			}
 		}
-
 	}
 
 	return (
